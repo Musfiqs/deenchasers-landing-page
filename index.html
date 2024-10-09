@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deenchasers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#home">Deenchasers.</a></div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission">One Mission</a></li>
+                <li><a href="#products">Free Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#mission" class="action_btn">Let's Go</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Video Section -->
+        <div class="video-section" id="home">
+            <div class="video-background">
+                <video autoplay muted loop playsinline id="background-video">
+                    <source src="IMG_7746.MOV" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <!-- Other Sections -->
+        <div class="slides" id="mission">
+            <h1>One Mission</h1>
+        </div>
+        <div class="slides" id="products">
+            <h1>Free Products</h1>
+        </div>
+        <div class="slides" id="contact">
+            <div class="contact-form">
+                <h3>GET IN TOUCH</h3>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="269f70e3-3b81-414d-b1d7-ef54cad6ef05">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Email ID" required>
+                    <input type="text" name="phone" placeholder="Phone No." required maxlength="11">
+                    <textarea name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                    <input type="hidden" name="subject" value="New Contact Form Submission">
+                    <button type="submit">Send</button>
+                </form>
+                <div id="status-message" class="status-message"></div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <a href="#home" class="back-to-top">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
+            </svg>
+        </a>
+
+        <script src="app.js"></script>
+    </div>
+</body>
+</html>

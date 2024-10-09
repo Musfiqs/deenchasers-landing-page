@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sticky Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    transition: all 0.3s ease; /* Smooth transition for background and height */
+    background-color: transparent; /* Initial background */
+    backdrop-filter: blur(0); /* Initial blur */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header.shrink {
+    padding: 0.5rem 2rem; /* Reduce padding to make header smaller */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Add blur effect */
+}
+
+.navbar .logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: font-size 0.3s ease; /* Smooth transition for logo size */
+}
+
+header.shrink .navbar .logo a {
+    font-size: 1.5rem; /* Reduce logo size */
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+/* Links Hover Effect */
+.navbar .links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0; /* Space for the underline */
+    transition: color 0.3s ease;
+}
+
+.navbar .links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position the line at the bottom of the link */
+    left: 0; /* Start at the left edge */
+    width: 0; /* Start with no width */
+    height: 2px; /* Thickness of the underline */
+    background-color: white; /* Color of the underline */
+    transition: width 0.3s ease;
+}
+
+.navbar .links a:hover::before {
+    width: 100%; /* Expand the underline to full width */
+}
+
+.navbar .links a:hover {
+    transform: scale(1.1);
+    text-decoration: none; /* Remove the default underline */
+}
+
+/* Top right action button */
+.action_btn {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.action_btn:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+/* Video Section */
+.video-section {
+    width: 100%;
+    height: 100vh; /* Full-screen height */
+    scroll-snap-align: start; /* Ensure the video section snaps into view */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #background-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #background-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+/* Pages Section */
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: white;
+    background: linear-gradient(135deg, #000000, #434343);
+    scroll-snap-align: start;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Updated to use an RGBA color for transparency */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out, transform 0.2s ease-out;
+    z-index: 1000;
+    text-align: center;
+}
+
+.back-to-top:hover {
+    background-color: #555; /* Darker color on hover */
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-4px); /* Moves the icon up on hover */
+}
+
+.material-icons {
+    font-size: 24px;
+}
+
+/* Additional Styling for the SVG icon within the button */
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    fill: #e8eaed; /* Ensures the icon color matches your design */
+    transition: transform 0.2s ease-out;
+}
+
+/* Styling for the Contact Section */
+#contact {
+    height: 100vh;
+    background: gray;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white gradient */
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* For a frosted glass effect */
+}
+
+.contact-form h3 {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    border: none;
+    margin: 10px 0;
+    padding: 15px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2); /* Transparent white gradient */
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Slight blur inside inputs */
+}
+
+.contact-form input::placeholder, 
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light placeholder text */
+}
+
+.contact-form button {
+    border: none;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the Contact Section */
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: gray;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white gradient */
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form h3 {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2); /* Transparent white gradient */
+    font-size: 16px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Slight blur inside inputs */
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Status message styling */
+.status-message {
+    display: none;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+}
